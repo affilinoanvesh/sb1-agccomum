@@ -12,6 +12,7 @@ import Contact from './pages/Contact.tsx';
 import Privacy from './pages/Privacy.tsx';
 import Terms from './pages/Terms.tsx';
 import FAQ from './pages/FAQ.tsx';
+import VoiceAgent from './pages/VoiceAgent.tsx';
 import NotFound from './pages/NotFound.tsx';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
@@ -23,6 +24,15 @@ const router = createBrowserRouter([
       <>
         <ScrollToTop />
         <App />
+      </>
+    ),
+  },
+  {
+    path: "/voice-agent",
+    element: (
+      <>
+        <ScrollToTop />
+        <VoiceAgent />
       </>
     ),
   },
