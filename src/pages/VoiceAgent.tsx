@@ -20,34 +20,66 @@ function VoiceAgent() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800" />
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Stop Losing $20,000+ in Missed Calls Every Month
-            </h1>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto mb-12">
-              Your AI receptionist answers every call, qualifies leads like your best salesperson, and books appointments directly into your calendar—even at 3 AM.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-12">
-              <div className="flex items-center text-primary-100">
-                <Phone className="w-5 h-5 mr-2" />
-                AI answers in 2 rings, 24/7
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-500 bg-opacity-20 text-primary-100 mb-6">
+                <AlertCircle className="w-5 h-5 mr-2" />
+                78% of customers call the first business that picks up
               </div>
-              <div className="flex items-center text-primary-100">
-                <MessageSquare className="w-5 h-5 mr-2" />
-                Qualify leads instantly
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                Never Miss Another <span className="text-primary-300">$243</span> Call Again
+              </h1>
+              <p className="text-xl text-primary-100 mb-8">
+                Your AI receptionist answers instantly, qualifies leads like your best salesperson, and books appointments 24/7—while you focus on running your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-primary-600 bg-white hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
+                >
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-6 h-6" />
+                </Link>
+                <a
+                  href="#how-it-works"
+                  className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-white border-2 border-white hover:bg-white/10 transition-colors"
+                >
+                  See How It Works
+                </a>
               </div>
-              <div className="flex items-center text-primary-100">
-                <Calendar className="w-5 h-5 mr-2" />
-                Book appointments automatically
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white mb-1">2 Rings</div>
+                  <div className="text-sm text-primary-100">Average Answer Time</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white mb-1">24/7</div>
+                  <div className="text-sm text-primary-100">Availability</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white mb-1">7 Days</div>
+                  <div className="text-sm text-primary-100">Free Trial</div>
+                </div>
               </div>
             </div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-primary-600 bg-white hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
-            >
-              Get Your AI Agent Free for 14 Days
-              <ArrowRight className="ml-2 w-6 h-6" />
-            </Link>
+            <div className="relative hidden md:block">
+              <img 
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800"
+                alt="Business professional on call"
+                className="rounded-2xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500">Last Call Handled</div>
+                    <div className="text-lg font-semibold text-gray-900">2 minutes ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -255,7 +287,7 @@ function VoiceAgent() {
             Ready to Stop Missing Calls?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Get your AI receptionist up and running in under 24 hours. Try it risk-free for 14 days.
+            Get your AI receptionist up and running in under 24 hours. Try it risk-free for 7 days.
           </p>
           <Link
             to="/contact"

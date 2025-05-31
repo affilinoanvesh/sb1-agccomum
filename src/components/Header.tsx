@@ -49,6 +49,12 @@ export default function Header() {
               About
             </Link>
             <Link 
+              to="/industries" 
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Industries
+            </Link>
+            <Link 
               to="/case-studies" 
               className="text-gray-600 hover:text-gray-900 font-medium"
             >
@@ -120,6 +126,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              to="/industries"
+              className="text-gray-600 hover:text-gray-900 py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Industries
             </Link>
             <Link
               to="/case-studies"
