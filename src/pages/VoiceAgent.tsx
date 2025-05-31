@@ -27,17 +27,17 @@ function VoiceAgent() {
                 78% of customers call the first business that picks up
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Never Miss Another <span className="text-primary-300">$243</span> Call Again
+                Stop Losing <span className="text-primary-300">$20,000+</span> in Missed Calls Every Month
               </h1>
               <p className="text-xl text-primary-100 mb-8">
-                Your AI receptionist answers instantly, qualifies leads like your best salesperson, and books appointments 24/7—while you focus on running your business.
+                Your AI receptionist answers instantly, converts leads into bookings, and grows your revenue 24/7—while you focus on running your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   to="/contact"
                   className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-primary-600 bg-white hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
                 >
-                  Start Free Trial
+                  Start 7-Day Free Trial
                   <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <a
@@ -89,7 +89,7 @@ function VoiceAgent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              You're Bleeding Money Every Day You Don't Answer
+              Every Missed Call is Lost Revenue
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-primary-50 p-8 rounded-2xl">
@@ -101,7 +101,7 @@ function VoiceAgent() {
                   </li>
                   <li className="flex items-start">
                     <AlertCircle className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-1" />
-                    <span>Each missed call costs you $243 on average</span>
+                    <span>You're losing $20,000+ in potential revenue monthly</span>
                   </li>
                   <li className="flex items-start">
                     <AlertCircle className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-1" />
@@ -144,7 +144,7 @@ function VoiceAgent() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Step 1: Business Intake</h3>
               <p className="text-gray-600">
-                Forward your business number to SuprHighway. What do you need the agent to do?
+                Forward your business number to our system. Tell us what you need the agent to do.
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-sm">
@@ -265,7 +265,7 @@ function VoiceAgent() {
                 Is this going to be expensive?
               </h3>
               <p className="text-gray-600">
-                Most clients save $2,000+ monthly just from not missing calls. SuprHighway pays for itself in the first week.
+                Most clients save $20,000+ monthly from captured leads. The system pays for itself in the first week.
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-sm">
@@ -273,7 +273,7 @@ function VoiceAgent() {
                 What if I don't like it?
               </h3>
               <p className="text-gray-600">
-                Zero risk. Cancel anytime in your first 14 days and pay nothing. We're that confident you'll love it.
+                Zero risk. Try it free for 7 days and cancel anytime if you're not completely satisfied.
               </p>
             </div>
           </div>
