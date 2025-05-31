@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import { ContactPopupProvider, useContactPopup } from './hooks/useContactPopup';
 import { ContactFormPopup } from './components/forms';
 import App from './App.tsx';
@@ -98,11 +97,9 @@ const root = document.getElementById('root');
 if (root) {
   createRoot(root).render(
     <StrictMode>
-      <HelmetProvider>
-        <ContactPopupProvider>
-          <RouterProvider router={router} />
-        </ContactPopupProvider>
-      </HelmetProvider>
+      <ContactPopupProvider>
+        <RouterProvider router={router} />
+      </ContactPopupProvider>
     </StrictMode>
   );
 }

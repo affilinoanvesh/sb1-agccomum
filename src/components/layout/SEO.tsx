@@ -1,5 +1,3 @@
-import { Helmet } from 'react-helmet-async';
-
 interface SEOProps {
   title: string;
   description: string;
@@ -167,8 +165,8 @@ export default function SEO({
   ].filter(Boolean);
 
   return (
-    <Helmet>
-      {/* Basic meta tags */}
+    <>
+      {/* Basic meta tags - React 19 will automatically hoist these to <head> */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
@@ -224,6 +222,6 @@ export default function SEO({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-    </Helmet>
+    </>
   );
 }
