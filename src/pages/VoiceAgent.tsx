@@ -18,21 +18,25 @@ function VoiceAgent() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Top Stat */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 text-white text-lg font-medium backdrop-blur-sm">
+              <AlertCircle className="w-5 h-5 mr-2 text-primary-300" />
+              <span className="text-primary-300 font-bold">78%</span> of customers choose the first business that answers
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-500 bg-opacity-20 text-primary-100 mb-6">
-                <AlertCircle className="w-5 h-5 mr-2" />
-                78% of customers call the first business that picks up
-              </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Stop Losing <span className="text-primary-300">$20,000+</span> in Missed Calls Every Month
               </h1>
               <p className="text-xl text-primary-100 mb-8">
                 Your AI receptionist answers instantly, converts leads into bookings, and grows your revenue 24/7—while you focus on running your business.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Link
                   to="/contact"
                   className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-primary-600 bg-white hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
@@ -47,25 +51,11 @@ function VoiceAgent() {
                   See How It Works
                 </a>
               </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">2 Rings</div>
-                  <div className="text-sm text-primary-100">Average Answer Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">24/7</div>
-                  <div className="text-sm text-primary-100">Availability</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">7 Days</div>
-                  <div className="text-sm text-primary-100">Free Trial</div>
-                </div>
-              </div>
             </div>
             <div className="relative hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800"
-                alt="Business professional on call"
+                src="https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=800"
+                alt="Professional business call center"
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
@@ -79,6 +69,22 @@ function VoiceAgent() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom Stats */}
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="text-3xl font-bold text-white mb-2">2 Rings</div>
+              <div className="text-primary-200">Average Answer Time</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="text-3xl font-bold text-white mb-2">24/7</div>
+              <div className="text-primary-200">Always Available</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="text-3xl font-bold text-white mb-2">95%</div>
+              <div className="text-primary-200">Lead Qualification Rate</div>
             </div>
           </div>
         </div>
