@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { seoConfig } from '../../config/seo';
+import { SEO_CONFIG } from '../../config/seo';
 
 interface SEOProps {
   title?: string;
@@ -10,13 +10,13 @@ interface SEOProps {
 }
 
 export default function SEO({ 
-  title = seoConfig.title,
-  description = seoConfig.description,
-  image = seoConfig.image,
+  title = SEO_CONFIG.defaultTitle,
+  description = SEO_CONFIG.defaultDescription,
+  image = SEO_CONFIG.defaultImage,
   noIndex = false 
 }: SEOProps) {
   const location = useLocation();
-  const canonicalUrl = `${seoConfig.siteUrl}${location.pathname}`;
+  const canonicalUrl = `${SEO_CONFIG.domain}${location.pathname}`;
 
   return (
     <Helmet>
@@ -38,7 +38,7 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
       
       {/* No index if specified */}
-      {noIndex && <meta name="robots\" content="noindex" />}
+      {noIndex && <meta name="robots" content="noindex" />}
     </Helmet>
   );
 }
