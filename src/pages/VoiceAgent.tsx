@@ -10,7 +10,7 @@ function VoiceAgent() {
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
         title="AI Voice Agent - Never Miss Another Call"
-        description="Your AI receptionist answers every call, qualifies leads, and books appointments 24/7. Stop losing $20,000+ in missed calls every month."
+        description="Your AI receptionist answers every call, qualifies leads, and books appointments 24/7. Stop losing $20,000+ in missed revenue from unanswered calls."
         canonical="/voice-agent"
       />
       <Header />
@@ -18,7 +18,7 @@ function VoiceAgent() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-left">
@@ -27,7 +27,7 @@ function VoiceAgent() {
                 78% of customers call the first business that picks up
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Stop Losing <span className="text-primary-300">$20,000+</span> in Missed Calls Every Month
+                Stop Losing <span className="text-primary-300">$20,000+</span> in Missed Calls
               </h1>
               <p className="text-xl text-primary-100 mb-8">
                 Your AI receptionist answers instantly, converts leads into bookings, and grows your revenue 24/7—while you focus on running your business.
@@ -64,7 +64,7 @@ function VoiceAgent() {
             </div>
             <div className="relative hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800"
+                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800"
                 alt="Business professional on call"
                 className="rounded-2xl shadow-2xl"
               />
@@ -101,7 +101,7 @@ function VoiceAgent() {
                   </li>
                   <li className="flex items-start">
                     <AlertCircle className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-1" />
-                    <span>You're losing $20,000+ in potential revenue monthly</span>
+                    <span>You're losing $20,000+ in potential revenue from missed calls</span>
                   </li>
                   <li className="flex items-start">
                     <AlertCircle className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-1" />
@@ -265,7 +265,7 @@ function VoiceAgent() {
                 Is this going to be expensive?
               </h3>
               <p className="text-gray-600">
-                Most clients save $20,000+ monthly from captured leads. The system pays for itself in the first week.
+                Most clients save $20,000+ from captured leads. The system pays for itself in the first week.
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-sm">
