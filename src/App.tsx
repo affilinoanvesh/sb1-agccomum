@@ -62,7 +62,7 @@ function App() {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                 <Settings className="w-12 h-12 text-primary-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">10 Hours Free Support</h3>
+                <h3 className="text-xl font-semibold mb-2">Free Support</h3>
                 <p className="text-gray-600">
                   Complimentary troubleshooting and adjustments as you start using the system.
                 </p>
@@ -144,7 +144,7 @@ function App() {
               <div className="text-center">
                 <Clock className="w-12 h-12 text-primary-600 mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">4. Support</h3>
-                <p className="text-gray-600">10 hours of free troubleshooting and updates</p>
+                <p className="text-gray-600">Free troubleshooting and updates</p>
               </div>
             </div>
           </div>

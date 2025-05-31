@@ -35,7 +35,7 @@ function VoiceAgent() {
                 78% of customers call the first business that picks up
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Stop Losing <span className="text-white bg-primary-500 px-2 rounded">$20,000+</span> in Missed Calls
+                Stop Losing <span className="text-primary-500">$20,000+</span> in Missed Calls
               </h1>
               <p className="text-xl text-primary-100 mb-8">
                 Your AI receptionist answers instantly, converts leads into bookings, and grows your revenue 24/7—while you focus on running your business.
@@ -73,8 +73,8 @@ function VoiceAgent() {
             </div>
             <div className="relative hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800"
-                alt="Professional business team"
+                src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=800"
+                alt="Professional call center representative"
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
