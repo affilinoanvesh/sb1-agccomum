@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
+import CTAPopup from './components/CTAPopup';
 import { caseStudies } from './data/caseStudies';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       />
       <ScrollToTop />
       <Header />
+      <CTAPopup />
 
       <main id="main-content">
         {/* Hero Section */}
