@@ -32,7 +32,4 @@ export default defineConfig({
       'Cache-Control': 'public, max-age=31536000',
     },
   },
-  preview: {
-    port: 5173,
-  },
 });

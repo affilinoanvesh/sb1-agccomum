@@ -6,14 +6,6 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 function VoiceAgent() {
-  const scrollToHowItWorks = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const section = document.getElementById('how-it-works');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
@@ -50,7 +42,6 @@ function VoiceAgent() {
                 </Link>
                 <a
                   href="#how-it-works"
-                  onClick={scrollToHowItWorks}
                   className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-white border-2 border-white hover:bg-white/10 transition-colors"
                 >
                   See How It Works
@@ -88,44 +79,6 @@ function VoiceAgent() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-gradient-to-b from-primary-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Get Started in Under 24 Hours
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                <Phone className="w-6 h-6 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Step 1: Business Intake</h3>
-              <p className="text-gray-600">
-                Forward your business number to our system. Tell us what you need the agent to do.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Step 2: Train Your AI</h3>
-              <p className="text-gray-600">
-                Tell us about your business, services, and pricing. Our AI learns your sales process.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                <Clock className="w-6 h-6 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Step 3: Go Live</h3>
-              <p className="text-gray-600">
-                Your AI agent starts answering calls immediately. You get real-time notifications of every interaction.
-              </p>
             </div>
           </div>
         </div>
@@ -173,6 +126,44 @@ function VoiceAgent() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 bg-gradient-to-b from-primary-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Get Started in Under 24 Hours
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+                <Phone className="w-6 h-6 text-primary-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Step 1: Business Intake</h3>
+              <p className="text-gray-600">
+                Forward your business number to our system. Tell us what you need the agent to do.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-primary-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Step 2: Train Your AI</h3>
+              <p className="text-gray-600">
+                Tell us about your business, services, and pricing. Our AI learns your sales process.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+                <Clock className="w-6 h-6 text-primary-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Step 3: Go Live</h3>
+              <p className="text-gray-600">
+                Your AI agent starts answering calls immediately. You get real-time notifications of every interaction.
+              </p>
             </div>
           </div>
         </div>
