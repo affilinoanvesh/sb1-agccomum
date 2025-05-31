@@ -10,13 +10,17 @@ export default function Header() {
 
   // Toggle body class for preventing scroll when menu is open
   React.useEffect(() => {
+    if (!document.body) return;
+    
     if (isMenuOpen) {
       document.body.classList.add('menu-open');
     } else {
       document.body.classList.remove('menu-open');
     }
     return () => {
-      document.body.classList.remove('menu-open');
+      if (document.body) {
+        document.body.classList.remove('menu-open');
+      }
     };
   }, [isMenuOpen]);
 

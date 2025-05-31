@@ -21,12 +21,16 @@ export default function ContactFormPopup({ isOpen, onClose, triggerSource }: Con
 
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      if (document.body) {
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      }
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      if (document.body) {
+        document.body.style.overflow = 'unset';
+      }
     };
   }, [isOpen, onClose]);
 
