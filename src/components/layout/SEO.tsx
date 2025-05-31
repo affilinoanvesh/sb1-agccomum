@@ -38,7 +38,7 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
       
       {/* No index if specified */}
-      {noIndex && <meta name="robots" content="noindex" />}
+      {noIndex && <meta name="robots\" content="noindex" />}
     </Helmet>
   );
 }
