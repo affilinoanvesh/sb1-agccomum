@@ -37,6 +37,12 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link 
+              to="/voice-agent" 
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Voice Agent
+            </Link>
+            <Link 
               to="/about" 
               className="text-gray-600 hover:text-gray-900 font-medium"
             >
@@ -107,6 +113,13 @@ export default function Header() {
             </button>
           </div>
           <div className="flex flex-col space-y-6">
+            <Link
+              to="/voice-agent"
+              className="text-gray-600 hover:text-gray-900 py-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Voice Agent
+            </Link>
             <Link
               to="/about"
               className="text-gray-600 hover:text-gray-900 py-2 font-medium"
