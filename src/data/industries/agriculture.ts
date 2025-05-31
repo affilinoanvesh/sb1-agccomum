@@ -5,7 +5,7 @@ export const agriculture: Industry = {
   id: 'agriculture',
   name: 'Agriculture',
   icon: Tractor,
-  description: 'AI solutions for farms and agricultural businesses that optimize crop management, reduce waste, and improve yield.',
+  description: 'AI solutions for farms and agricultural businesses that optimise crop management, reduce waste, and improve yield.',
   challenges: [
     {
       title: 'Crop Management',
@@ -65,7 +65,7 @@ export const agriculture: Industry = {
     {
       label: 'Yield Increase',
       value: '+35%',
-      description: 'Through optimized crop management',
+      description: 'Through optimised crop management',
     },
     {
       label: 'Resource Savings',
@@ -73,7 +73,7 @@ export const agriculture: Industry = {
       description: 'Water and fertilizer reduction',
     },
     {
-      label: 'Labor Efficiency',
+      label: 'Labour Efficiency',
       value: '+50%',
       description: 'Improved workforce productivity',
     },

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Star, Quote, Brain, CheckCircle } from 'lucide-react';
-import { localBusinesses } from '../data/localBusinesses';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { ArrowLeft, ExternalLink, CheckCircle } from 'lucide-react';
+import { localBusinesses } from '../../data/localBusinesses';
+import { Header, Footer } from '../../components/layout';
+import { useContactPopup } from '../../hooks/useContactPopup';
 
 export default function LocalBusinessCaseStudy() {
   const { id } = useParams();
@@ -97,7 +97,7 @@ export default function LocalBusinessCaseStudy() {
                 <ul className="space-y-3">
                   {business.results.map((result, index) => (
                     <li key={index} className="flex items-center text-gray-600">
-                      <ArrowRight className="w-5 h-5 text-primary-600 mr-3 flex-shrink-0" />
+                      <ArrowLeft className="w-5 h-5 text-primary-600 mr-3 flex-shrink-0" />
                       {result}
                     </li>
                   ))}
@@ -139,7 +139,7 @@ export default function LocalBusinessCaseStudy() {
               {/* Testimonial */}
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-6">Client Testimonial</h3>
-                <Quote className="w-10 h-10 text-primary-200 mb-4" />
+                <ExternalLink className="w-10 h-10 text-primary-200 mb-4" />
                 <blockquote className="text-gray-600 italic mb-6">
                   "{business.testimonial.quote}"
                 </blockquote>
@@ -177,17 +177,17 @@ export default function LocalBusinessCaseStudy() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-50 transition-colors inline-flex items-center"
+                className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
               >
                 Start Your Project
-                <ChevronRight className="ml-2 w-5 h-5" />
+                <ArrowLeft className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 to="/case-studies"
                 className="text-white border-2 border-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
               >
                 View More Case Studies
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowLeft className="ml-2 w-5 h-5" />
               </Link>
             </div>
           </div>

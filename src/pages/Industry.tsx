@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Clock, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { Header, Footer, SEO } from '../components/layout';
 import { industries } from '../data/industries';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
+import { useContactPopup } from '../hooks/useContactPopup';
 
 function Industry() {
   const { id } = useParams();
@@ -194,7 +193,7 @@ function Industry() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
+                className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
               >
                 Schedule a Demo
                 <ChevronRight className="ml-2 w-5 h-5" />

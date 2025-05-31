@@ -1,18 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
-import { caseStudies } from '../data/caseStudies';
+import { Header, Footer, SEO } from '../../components/layout';
+import { useContactPopup } from '../../hooks/useContactPopup';
+import { caseStudies } from '../../data/caseStudies';
 
 function CaseStudies() {
+  const { openPopup } = useContactPopup();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
-        title="AI Success Stories"
-        description="Discover how small businesses are transforming their operations with custom AI solutions. Real results from real businesses in your industry."
+        title="AI Success Stories - Real Business Transformations"
+        description="Discover how small businesses are transforming their operations with custom AI solutions. Real results from real businesses in your industry. See proven ROI and case studies."
         canonical="/case-studies"
+        keywords={[
+          'AI success stories',
+          'AI case studies',
+          'business AI transformation',
+          'AI implementation results',
+          'AI ROI case studies',
+          'small business AI examples',
+          'AI automation success',
+          'business automation case studies',
+          'AI customer service results',
+          'AI efficiency improvements',
+          'AI business solutions examples',
+          'AI implementation proof'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Case Studies', url: '/case-studies' }
+        ]}
+        businessInfo={{
+          name: 'User Labs',
+          type: 'TechnologyCompany',
+          address: 'Auckland, New Zealand',
+          phone: '+64-27-123-4567',
+          email: 'hello@userlabs.co.nz',
+          priceRange: '$$'
+        }}
       />
       <Header />
 
@@ -83,13 +110,13 @@ function CaseStudies() {
                 Let's discuss how we can transform your business operations with custom AI solutions tailored to your needs.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  to="/contact"
-                  className="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-50 transition-colors inline-flex items-center"
+                <button
+                  onClick={() => openPopup('Case Studies - CTA')}
+                  className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
                 >
-                  Start Your Project
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                  Start Your Success Story
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </button>
                 <Link
                   to="/industries"
                   className="text-white border-2 border-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-500 transition-colors inline-flex items-center"

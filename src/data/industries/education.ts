@@ -12,7 +12,7 @@ export const education: Industry = {
       description: 'Time-consuming grading and progress tracking.',
     },
     {
-      title: 'Personalized Learning',
+      title: 'Personalised Learning',
       description: 'Adapting to individual student needs and learning styles.',
     },
     {
@@ -29,7 +29,7 @@ export const education: Industry = {
     },
     {
       title: 'Learning Analytics',
-      description: 'Personalized learning paths based on student performance.',
+      description: 'Personalised learning paths based on student performance.',
       timesSaved: '10 hours/week',
       roi: '230%',
     },

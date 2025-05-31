@@ -99,7 +99,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       { label: 'Time Saved', value: '10hrs/week' },
     ],
     challenge: 'Managing inventory across multiple product categories was leading to significant waste and frequent stockouts. Manual inventory counts were time-consuming and often inaccurate.',
-    solution: 'Implemented an AI-powered inventory management system that predicts demand, automates reordering, and optimizes stock levels based on historical sales data and seasonal trends.',
+    solution: 'Implemented an AI-powered inventory management system that predicts demand, automates reordering, and optimises stock levels based on historical sales data and seasonal trends.',
     implementation: [
       'Sales pattern analysis',
       'Automated reorder points',

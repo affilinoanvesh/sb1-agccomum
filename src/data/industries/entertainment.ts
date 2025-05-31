@@ -5,11 +5,11 @@ export const entertainment: Industry = {
   id: 'entertainment',
   name: 'Entertainment & Gaming',
   icon: Music,
-  description: 'AI solutions for entertainment companies that optimize content creation, user engagement, and revenue generation.',
+  description: 'AI solutions for entertainment companies that optimise content creation, user engagement, and revenue generation.',
   challenges: [
     {
       title: 'Content Personalization',
-      description: 'Delivering personalized content recommendations.',
+      description: 'Delivering personalised content recommendations.',
     },
     {
       title: 'User Engagement',
@@ -43,11 +43,11 @@ export const entertainment: Industry = {
   features: [
     {
       title: 'Smart Recommendations',
-      description: 'Personalized content delivery system.',
+      description: 'Personalised content delivery system.',
     },
     {
       title: 'User Analytics',
-      description: 'Deep user behavior analysis.',
+      description: 'Deep user behaviour analysis.',
     },
     {
       title: 'Monetization Tools',

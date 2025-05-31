@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
+import { ChevronRight, ChevronDown, HelpCircle } from 'lucide-react';
+import { Header, Footer, SEO } from '../components/layout';
+import { useContactPopup } from '../hooks/useContactPopup';
 
 function FAQ() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const { openPopup } = useContactPopup();
+
   const faqs = [
     {
       category: "Getting Started",
@@ -77,12 +79,45 @@ function FAQ() {
     }
   ];
 
+  // Flatten all FAQs for structured data
+  const allFAQs = faqs.flatMap(category => 
+    category.questions.map(faq => ({
+      question: faq.q,
+      answer: faq.a
+    }))
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
-        title="Frequently Asked Questions"
-        description="Find answers to common questions about our AI solutions, implementation process, data security, and support services."
+        title="Frequently Asked Questions - AI Solutions for Small Business"
+        description="Find answers to common questions about our AI solutions, implementation process, data security, pricing, and support services. Get expert insights on AI for your business."
         canonical="/faq"
+        keywords={[
+          'AI solutions FAQ',
+          'artificial intelligence questions',
+          'AI implementation process',
+          'AI pricing questions',
+          'AI security questions',
+          'AI support services',
+          'AI business automation FAQ',
+          'AI customer service questions',
+          'AI data protection',
+          'AI training and support'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'FAQ', url: '/faq' }
+        ]}
+        faq={allFAQs}
+        businessInfo={{
+          name: 'User Labs',
+          type: 'TechnologyCompany',
+          address: 'Auckland, New Zealand',
+          phone: '+64-27-123-4567',
+          email: 'hello@userlabs.co.nz',
+          priceRange: '$$'
+        }}
       />
       <Header />
 
@@ -123,13 +158,13 @@ function FAQ() {
             <p className="text-xl text-gray-600 mb-8">
               Still have questions? We're here to help.
             </p>
-            <Link
-              to="/contact"
-              className="bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
+            <button
+              onClick={() => openPopup('FAQ Page - CTA')}
+              className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
             >
-              Contact Us
+              Get Your Custom Solution
               <ChevronRight className="ml-2 w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </main>

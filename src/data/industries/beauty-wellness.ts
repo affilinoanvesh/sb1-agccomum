@@ -35,7 +35,7 @@ export const beautyWellness: Industry = {
     },
     {
       title: 'Client Insights',
-      description: 'Predictive analytics for personalized service recommendations.',
+      description: 'Predictive analytics for personalised service recommendations.',
       timesSaved: '8 hours/week',
       roi: '190%',
     },

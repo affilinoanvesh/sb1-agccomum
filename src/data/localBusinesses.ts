@@ -146,7 +146,7 @@ export const localBusinesses: Record<string, LocalBusiness> = {
     description: "Family-owned restaurant group",
     fullDescription: "A growing family restaurant business with three locations in the city",
     challenge: "Managing multiple locations led to inconsistent inventory levels, food waste, and difficulty in predicting daily preparation needs. Customer wait times were also increasing during peak hours.",
-    solution: "Implemented an AI-powered kitchen management system that predicts daily demand, optimizes prep schedules, and manages inventory across locations.",
+    solution: "Implemented an AI-powered kitchen management system that predicts daily demand, optimises prep schedules, and manages inventory across locations.",
     implementation: [
       "Demand prediction by location",
       "Smart prep scheduling",

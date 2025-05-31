@@ -1,17 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
+import { Header, Footer, SEO } from '../../components/layout';
 
 function Terms() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
-        title="Terms of Service"
-        description="Read our terms of service to understand the rules, guidelines, and agreements that govern the use of our AI solutions and services."
+        title="Terms of Service - User Labs Legal Agreement"
+        description="Read our terms of service to understand the rules, guidelines, and agreements that govern the use of our AI solutions and services. Legal terms and conditions."
         canonical="/terms"
+        keywords={[
+          'terms of service',
+          'user labs terms',
+          'service agreement',
+          'legal terms',
+          'AI services terms',
+          'user agreement',
+          'service conditions',
+          'legal agreement',
+          'terms and conditions',
+          'service contract'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Terms of Service', url: '/terms' }
+        ]}
+        noindex={true}
       />
       <Header />
 
@@ -103,7 +118,7 @@ function Terms() {
           <div className="mt-12 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors"
+              className="inline-flex items-center bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors transform hover:scale-105"
             >
               Contact Us
               <ChevronRight className="ml-2 w-5 h-5" />

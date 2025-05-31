@@ -1,130 +1,95 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { ContactPopupProvider, useContactPopup } from './hooks/useContactPopup';
+import { ContactFormPopup } from './components/forms';
 import App from './App.tsx';
-import About from './pages/About.tsx';
-import CaseStudies from './pages/CaseStudies.tsx';
-import CaseStudy from './pages/CaseStudy.tsx';
-import Industries from './pages/Industries.tsx';
-import Industry from './pages/Industry.tsx';
-import Contact from './pages/Contact.tsx';
-import Privacy from './pages/Privacy.tsx';
-import Terms from './pages/Terms.tsx';
-import FAQ from './pages/FAQ.tsx';
-import VoiceAgent from './pages/VoiceAgent.tsx';
-import NotFound from './pages/NotFound.tsx';
-import ScrollToTop from './components/ScrollToTop';
+import { 
+  About, 
+  Contact, 
+  FAQ, 
+  Industries, 
+  Industry, 
+  NotFound 
+} from './pages';
+import { Terms, Privacy } from './pages/legal';
+import { CaseStudies, CaseStudy } from './pages/case-studies';
+import { VoiceAgent, InvoiceAgent } from './pages/agents';
+import { ScrollToTop } from './components/ui';
 import './index.css';
+
+// Root layout component that provides popup to all routes
+function RootLayout() {
+  const { isOpen, triggerSource, closePopup } = useContactPopup();
+  
+  return (
+    <>
+      <ScrollToTop />
+      <Outlet />
+      <ContactFormPopup isOpen={isOpen} onClose={closePopup} triggerSource={triggerSource} />
+    </>
+  );
+}
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <>
-        <ScrollToTop />
-        <App />
-      </>
-    ),
-  },
-  {
-    path: "/voice-agent",
-    element: (
-      <>
-        <ScrollToTop />
-        <VoiceAgent />
-      </>
-    ),
-  },
-  {
-    path: "/about",
-    element: (
-      <>
-        <ScrollToTop />
-        <About />
-      </>
-    ),
-  },
-  {
-    path: "/case-studies",
-    element: (
-      <>
-        <ScrollToTop />
-        <CaseStudies />
-      </>
-    ),
-  },
-  {
-    path: "/case-studies/:id",
-    element: (
-      <>
-        <ScrollToTop />
-        <CaseStudy />
-      </>
-    ),
-  },
-  {
-    path: "/industries",
-    element: (
-      <>
-        <ScrollToTop />
-        <Industries />
-      </>
-    ),
-  },
-  {
-    path: "/industries/:id",
-    element: (
-      <>
-        <ScrollToTop />
-        <Industry />
-      </>
-    ),
-  },
-  {
-    path: "/contact",
-    element: (
-      <>
-        <ScrollToTop />
-        <Contact />
-      </>
-    ),
-  },
-  {
-    path: "/privacy",
-    element: (
-      <>
-        <ScrollToTop />
-        <Privacy />
-      </>
-    ),
-  },
-  {
-    path: "/terms",
-    element: (
-      <>
-        <ScrollToTop />
-        <Terms />
-      </>
-    ),
-  },
-  {
-    path: "/faq",
-    element: (
-      <>
-        <ScrollToTop />
-        <FAQ />
-      </>
-    ),
-  },
-  {
-    path: "*",
-    element: (
-      <>
-        <ScrollToTop />
-        <NotFound />
-      </>
-    ),
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <App />,
+      },
+      {
+        path: "voice-agent",
+        element: <VoiceAgent />,
+      },
+      {
+        path: "invoice-agent",
+        element: <InvoiceAgent />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "case-studies",
+        element: <CaseStudies />,
+      },
+      {
+        path: "case-studies/:id",
+        element: <CaseStudy />,
+      },
+      {
+        path: "industries",
+        element: <Industries />,
+      },
+      {
+        path: "industries/:id",
+        element: <Industry />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "privacy",
+        element: <Privacy />,
+      },
+      {
+        path: "terms",
+        element: <Terms />,
+      },
+      {
+        path: "faq",
+        element: <FAQ />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
   },
 ]);
 
@@ -134,7 +99,9 @@ if (root) {
   createRoot(root).render(
     <StrictMode>
       <HelmetProvider>
-        <RouterProvider router={router} />
+        <ContactPopupProvider>
+          <RouterProvider router={router} />
+        </ContactPopupProvider>
       </HelmetProvider>
     </StrictMode>
   );

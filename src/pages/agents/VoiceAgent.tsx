@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Calendar, MessageSquare, Clock, CheckCircle, ArrowRight, AlertCircle, Zap, Shield } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
+import { Phone, Shield, Clock, ArrowRight, CheckCircle, AlertCircle, Zap, ChevronRight, Play, Users, DollarSign, TrendingUp, MessageSquare } from 'lucide-react';
+import { Header, Footer, SEO } from '../../components/layout';
+import { useContactPopup } from '../../hooks/useContactPopup';
 
 function VoiceAgent() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const { openPopup } = useContactPopup();
+
   const scrollToHowItWorks = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const section = document.getElementById('how-it-works');
@@ -20,6 +22,50 @@ function VoiceAgent() {
         title="AI Voice Agent - Never Miss Another Call"
         description="Your AI receptionist answers every call, qualifies leads, and books appointments 24/7. Stop losing $20,000+ in missed revenue from unanswered calls."
         canonical="/voice-agent"
+        keywords={[
+          'AI voice agent',
+          'AI receptionist',
+          'automated phone answering',
+          'AI call handling',
+          'voice AI for business',
+          'automated customer service',
+          'AI phone system',
+          'virtual receptionist',
+          'AI call center',
+          'intelligent call routing',
+          'missed call recovery',
+          'lead qualification AI'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Voice Agent', url: '/voice-agent' }
+        ]}
+        businessInfo={{
+          name: 'User Labs - AI Voice Agent',
+          type: 'TechnologyCompany',
+          address: 'Auckland, New Zealand',
+          phone: '+64-27-123-4567',
+          email: 'hello@userlabs.co.nz',
+          priceRange: '$$'
+        }}
+        faq={[
+          {
+            question: 'How quickly can the AI voice agent be set up?',
+            answer: 'Your AI voice agent can be set up and ready to answer calls within 24 hours of setup completion.'
+          },
+          {
+            question: 'Does the AI voice agent sound natural?',
+            answer: 'Yes, our AI voice agent uses advanced natural language processing to have natural, human-like conversations with your callers.'
+          },
+          {
+            question: 'Can the AI voice agent book appointments?',
+            answer: 'Absolutely! The AI can check your calendar availability and book appointments directly with customers during the call.'
+          },
+          {
+            question: 'What happens if the AI cannot handle a call?',
+            answer: 'If the AI encounters a complex situation it cannot handle, it will seamlessly transfer the call to you or take a detailed message.'
+          }
+        ]}
       />
       <Header />
 
@@ -35,23 +81,23 @@ function VoiceAgent() {
                 78% of customers call the first business that picks up
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Stop Losing <span className="text-primary-500">$20,000+</span> in Missed Calls
+                Stop Losing <span className="text-white">$20,000+</span> in Missed Calls
               </h1>
               <p className="text-xl text-primary-100 mb-8">
                 Your AI receptionist answers instantly, converts leads into bookings, and grows your revenue 24/7—while you focus on running your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-primary-600 bg-white hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
+                <button
+                  onClick={() => openPopup('Voice Agent - Hero CTA')}
+                  className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
                 >
-                  Start 7-Day Free Trial
-                  <ArrowRight className="ml-2 w-6 h-6" />
-                </Link>
+                  Get Your Voice Agent
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </button>
                 <a
                   href="#how-it-works"
                   onClick={scrollToHowItWorks}
-                  className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-white border-2 border-white hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-white border-2 border-white hover:bg-white hover:text-primary-600 transition-colors"
                 >
                   See How It Works
                 </a>
@@ -234,7 +280,7 @@ function VoiceAgent() {
                 </li>
                 <li className="flex items-center">
                   <Shield className="w-5 h-5 text-primary-600 mr-3" />
-                  <span>Sends personalized follow-up messages</span>
+                  <span>Sends personalised follow-up messages</span>
                 </li>
                 <li className="flex items-center">
                   <Shield className="w-5 h-5 text-primary-600 mr-3" />
@@ -298,13 +344,13 @@ function VoiceAgent() {
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
             Get your AI receptionist up and running in under 24 hours. Try it risk-free for 7 days.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-primary-600 bg-white hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
+          <button
+            onClick={() => openPopup('Voice Agent - ROI CTA')}
+            className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
           >
-            Start Your Free Trial
-            <ArrowRight className="ml-2 w-6 h-6" />
-          </Link>
+            Start Saving Today
+            <ChevronRight className="ml-2 w-5 h-5" />
+          </button>
         </div>
       </section>
 

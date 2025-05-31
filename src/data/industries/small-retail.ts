@@ -47,7 +47,7 @@ export const smallRetail: Industry = {
     },
     {
       title: 'Customer Insights',
-      description: 'Personalized shopping recommendations.',
+      description: 'Personalised shopping recommendations.',
     },
     {
       title: 'Competitive Analysis',
@@ -79,7 +79,7 @@ export const smallRetail: Industry = {
     },
   ],
   testimonial: {
-    quote: "The AI retail system has transformed our boutique. We're managing inventory better and providing personalized service that keeps customers coming back.",
+    quote: "The AI retail system has transformed our boutique. We're managing inventory better and providing personalised service that keeps customers coming back.",
     author: "Maria Garcia",
     position: "Owner",
     company: "Bella's Boutique",

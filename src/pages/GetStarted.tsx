@@ -1,8 +1,7 @@
 import React from 'react';
-import { Brain, ArrowRight, MessageSquare, Wrench, Clock } from 'lucide-react';
+import { MessageSquare, ArrowRight, Wrench, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { Header, Footer } from '../components/layout';
 
 function GetStarted() {
   return (

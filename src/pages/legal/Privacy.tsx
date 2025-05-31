@@ -1,17 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
+import { Header, Footer, SEO } from '../../components/layout';
 
 function Privacy() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
-        title="Privacy Policy"
-        description="Learn about how we collect, use, and protect your personal information. Our commitment to your privacy and data security."
+        title="Privacy Policy - User Labs Data Protection"
+        description="Learn about how we collect, use, and protect your personal information. Our commitment to your privacy and data security under New Zealand Privacy Act 2020."
         canonical="/privacy"
+        keywords={[
+          'privacy policy',
+          'data protection',
+          'user labs privacy',
+          'personal information protection',
+          'Privacy Act 2020',
+          'data security',
+          'information collection',
+          'user rights',
+          'data handling',
+          'privacy compliance'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Privacy Policy', url: '/privacy' }
+        ]}
+        noindex={true}
       />
       <Header />
 
@@ -91,7 +106,7 @@ function Privacy() {
           <div className="mt-12 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors"
+              className="inline-flex items-center bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors transform hover:scale-105"
             >
               Contact Us
               <ChevronRight className="ml-2 w-5 h-5" />

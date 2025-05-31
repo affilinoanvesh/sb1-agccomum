@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Beaker, Menu, X } from 'lucide-react';
+import { Beaker, Menu, X, ChevronDown } from 'lucide-react';
+import { useContactPopup } from '../../hooks/useContactPopup';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVoiceDropdownOpen, setIsVoiceDropdownOpen] = useState(false);
+  const { openPopup } = useContactPopup();
 
   // Toggle body class for preventing scroll when menu is open
   React.useEffect(() => {
@@ -36,12 +39,35 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/voice-agent" 
-              className="text-gray-600 hover:text-gray-900 font-medium"
-            >
-              Voice Agent
-            </Link>
+            {/* Voice Agent with Dropdown */}
+            <div className="relative group">
+              <Link 
+                to="/voice-agent"
+                className="text-gray-600 hover:text-gray-900 font-medium flex items-center"
+                onMouseEnter={() => setIsVoiceDropdownOpen(true)}
+                onMouseLeave={() => setIsVoiceDropdownOpen(false)}
+              >
+                Voice Agent
+                <ChevronDown className="w-4 h-4 ml-1" />
+              </Link>
+              
+              {/* Dropdown Menu */}
+              <div 
+                className={`absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-lg border transition-all duration-200 ${
+                  isVoiceDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
+                onMouseEnter={() => setIsVoiceDropdownOpen(true)}
+                onMouseLeave={() => setIsVoiceDropdownOpen(false)}
+              >
+                <Link 
+                  to="/invoice-agent" 
+                  className="block px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 font-medium"
+                >
+                  Invoice Agent
+                </Link>
+              </div>
+            </div>
+
             <Link 
               to="/about" 
               className="text-gray-600 hover:text-gray-900 font-medium"
@@ -60,12 +86,12 @@ export default function Header() {
             >
               Case Studies
             </Link>
-            <Link 
-              to="/contact"
-              className="bg-primary-600 text-white px-6 py-2.5 rounded-lg hover:bg-primary-700 transition-colors font-medium shadow-sm hover:shadow"
+            <button
+              onClick={() => openPopup('Header CTA - Desktop')}
+              className="bg-accent-500 text-white px-6 py-2.5 rounded-lg hover:bg-accent-600 transition-colors font-medium shadow-sm hover:shadow transform hover:scale-105"
             >
               Contact Us
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -113,13 +139,24 @@ export default function Header() {
             </button>
           </div>
           <div className="flex flex-col space-y-6">
-            <Link
-              to="/voice-agent"
-              className="text-gray-600 hover:text-gray-900 py-2 font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Voice Agent
-            </Link>
+            {/* Voice Agent Section with Sub-items */}
+            <div>
+              <Link
+                to="/voice-agent"
+                className="text-gray-600 hover:text-gray-900 py-2 font-medium block"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Voice Agent
+              </Link>
+              <Link
+                to="/invoice-agent"
+                className="text-gray-500 hover:text-gray-700 py-2 font-medium block ml-4 text-sm"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                → Invoice Agent
+              </Link>
+            </div>
+            
             <Link
               to="/about"
               className="text-gray-600 hover:text-gray-900 py-2 font-medium"
@@ -141,13 +178,15 @@ export default function Header() {
             >
               Case Studies
             </Link>
-            <Link
-              to="/contact"
-              className="bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors text-center font-medium mt-4 shadow-sm hover:shadow"
-              onClick={() => setIsMenuOpen(false)}
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                openPopup('Header CTA - Mobile');
+              }}
+              className="bg-accent-500 text-white px-6 py-3 rounded-lg hover:bg-accent-600 transition-colors text-center font-medium mt-4 shadow-sm hover:shadow"
             >
               Contact Us
-            </Link>
+            </button>
           </div>
         </div>
       </div>

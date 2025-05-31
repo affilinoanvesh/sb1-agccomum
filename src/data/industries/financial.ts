@@ -17,7 +17,7 @@ export const financial: Industry = {
     },
     {
       title: 'Customer Service',
-      description: 'Providing personalized financial advice and support.',
+      description: 'Providing personalised financial advice and support.',
     },
   ],
   solutions: [

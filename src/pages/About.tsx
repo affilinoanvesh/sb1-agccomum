@@ -1,17 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Lightbulb, MessageSquare, ChevronRight, Users, Target, HandshakeIcon } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
+import { Header, Footer, SEO } from '../components/layout';
+import { useContactPopup } from '../hooks/useContactPopup';
 
 function About() {
+  const { openPopup } = useContactPopup();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
         title="About Us - Small Business AI Solutions"
         description="We're a small business just like you, dedicated to creating personalized AI solutions that actually work for your needs. Learn about our approach to helping local businesses thrive."
         canonical="/about"
+        keywords={[
+          'about user labs',
+          'AI solutions company',
+          'small business AI experts',
+          'AI development team',
+          'business automation specialists',
+          'AI consulting services',
+          'custom AI development',
+          'AI for small business owners',
+          'technology consulting',
+          'business growth through AI'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'About', url: '/about' }
+        ]}
+        businessInfo={{
+          name: 'User Labs',
+          type: 'TechnologyCompany',
+          address: 'Auckland, New Zealand',
+          phone: '+64-27-123-4567',
+          email: 'hello@userlabs.co.nz',
+          priceRange: '$$'
+        }}
       />
       <Header />
 
@@ -147,13 +172,13 @@ function About() {
               <p className="text-xl text-primary-100 mb-8">
                 Ready to work with a team that truly understands your business needs? Let's have a conversation about how we can help you grow.
               </p>
-              <Link
-                to="/contact"
-                className="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-50 transition-colors inline-flex items-center"
+              <button
+                onClick={() => openPopup('About Page CTA')}
+                className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
               >
                 Start the Conversation
                 <ChevronRight className="ml-2 w-5 h-5" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>

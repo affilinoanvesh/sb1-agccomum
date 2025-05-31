@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { BarChart, Clock, Users, CheckCircle, ArrowRight, ChevronRight } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { caseStudies } from '../data/caseStudies';
-import SEO from '../components/SEO';
+import { Header, Footer, SEO } from '../../components/layout';
+import { ChevronLeft } from 'lucide-react';
+import { caseStudies } from '../../data/caseStudies';
+import { useContactPopup } from '../../hooks/useContactPopup';
 
 function CaseStudy() {
   const { id } = useParams();
@@ -145,7 +145,7 @@ function CaseStudy() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Link
                     to="/contact"
-                    className="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-50 transition-colors inline-flex items-center"
+                    className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
                   >
                     Start Your Project
                     <ChevronRight className="ml-2 w-5 h-5" />

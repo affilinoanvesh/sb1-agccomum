@@ -5,7 +5,7 @@ export const media: Industry = {
   id: 'media',
   name: 'Media & Entertainment',
   icon: Camera,
-  description: 'AI solutions for media companies that automate content creation, optimize distribution, and enhance audience engagement.',
+  description: 'AI solutions for media companies that automate content creation, optimise distribution, and enhance audience engagement.',
   challenges: [
     {
       title: 'Content Creation',
@@ -47,7 +47,7 @@ export const media: Industry = {
     },
     {
       title: 'Audience Insights',
-      description: 'Deep audience behavior analysis.',
+      description: 'Deep audience behaviour analysis.',
     },
     {
       title: 'Distribution Optimization',

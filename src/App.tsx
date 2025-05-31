@@ -1,24 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MessageSquare, Brain, Clock, Wrench, ChevronRight, Code, Settings, Users, Star, ArrowRight, Award, Building2, Quote } from 'lucide-react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import SEO from './components/SEO';
-import CTAPopup from './components/CTAPopup';
+import { MessageSquare, Brain, Clock, Wrench, ChevronRight, Code, Settings, Users, ArrowRight, Target, HandshakeIcon } from 'lucide-react';
+import { Header, Footer, SEO } from './components/layout';
+import { ScrollToTop } from './components/ui';
+import { useContactPopup } from './hooks/useContactPopup';
 import { caseStudies } from './data/caseStudies';
 
 function App() {
+  const { openPopup } = useContactPopup();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
         title="Custom AI Solutions for Small Businesses"
-        description="Transform your small business with personalized AI solutions. Save time, reduce costs, and grow your customer base with AI tools tailored to your needs."
-        canonical="https://customai.solutions"
+        description="Transform your small business with personalised AI solutions. Save time, reduce costs, and grow your customer base with AI tools tailored to your needs."
+        canonical="/"
+        keywords={[
+          'AI solutions for small business',
+          'custom AI development',
+          'business automation',
+          'artificial intelligence consulting',
+          'small business AI tools',
+          'AI customer service',
+          'AI voice agents',
+          'business process automation',
+          'AI for local business',
+          'machine learning solutions'
+        ]}
+        businessInfo={{
+          name: 'User Labs',
+          type: 'TechnologyCompany',
+          address: 'Auckland, New Zealand',
+          phone: '+64-27-123-4567',
+          email: 'hello@userlabs.co.nz',
+          priceRange: '$$'
+        }}
+        faq={[
+          {
+            question: 'How quickly can I get an AI solution for my business?',
+            answer: 'Most of our AI solutions can be implemented within 1-2 weeks, depending on complexity. We start with a consultation to understand your needs and provide a timeline.'
+          },
+          {
+            question: 'Do I need technical knowledge to use your AI solutions?',
+            answer: 'No, our AI solutions are designed to be user-friendly. We provide training and ongoing support to ensure you can use the system effectively.'
+          },
+          {
+            question: 'What types of businesses do you work with?',
+            answer: 'We work with various small businesses including medical practices, law firms, accounting offices, retail stores, cafes, beauty salons, automotive businesses, and more.'
+          },
+          {
+            question: 'How much do your AI solutions cost?',
+            answer: 'Our pricing varies based on your specific needs and complexity. We offer consultation to provide a customised quote that fits your budget and requirements.'
+          }
+        ]}
       />
       <ScrollToTop />
       <Header />
-      <CTAPopup />
 
       <main id="main-content">
         {/* Hero Section */}
@@ -28,16 +65,16 @@ function App() {
               Custom AI Solutions for Your Small Business
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              I create personalized AI solutions that actually fit your business needs. 
+              I create personalised AI solutions that can save your business up to 20+ hours per week. 
               As a fellow small business owner, I understand the importance of getting it right.
             </p>
-            <Link
-              to="/contact"
-              className="bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
+            <button
+              onClick={() => openPopup('AI Journey - Homepage Hero')}
+              className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
             >
               Start Your AI Journey
               <ChevronRight className="ml-2 w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </section>
 
@@ -136,7 +173,7 @@ function App() {
               <div className="text-center">
                 <Brain className="w-12 h-12 text-primary-600 mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">2. Solution Design</h3>
-                <p className="text-gray-600">Creating a customized AI solution plan</p>
+                <p className="text-gray-600">Creating a customised AI solution plan</p>
               </div>
               <div className="text-center">
                 <Wrench className="w-12 h-12 text-primary-600 mx-auto mb-4" />
@@ -147,6 +184,59 @@ function App() {
                 <Clock className="w-12 h-12 text-primary-600 mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">4. Support</h3>
                 <p className="text-gray-600">Free troubleshooting and updates</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Limited Client Availability */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Exclusive, Personal Service
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Quality over quantity - that's how I ensure every client gets exceptional results.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Users className="w-8 h-8 text-primary-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Limited to 5 Clients Monthly</h3>
+                <p className="text-gray-600">
+                  I carefully limit my client intake to ensure each project receives the dedicated attention it deserves.
+                </p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Target className="w-8 h-8 text-primary-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Deep Business Understanding</h3>
+                <p className="text-gray-600">
+                  This allows me to truly understand your business processes and create solutions that fit perfectly.
+                </p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <HandshakeIcon className="w-8 h-8 text-primary-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Personal Partnership</h3>
+                <p className="text-gray-600">
+                  You're not just another client - you're a valued partner in building something that truly works.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <div className="inline-flex items-center px-6 py-3 bg-accent-100 text-accent-700 rounded-full text-lg font-medium">
+                <Clock className="w-5 h-5 mr-2" />
+                Apply early to secure your spot for next month
               </div>
             </div>
           </div>
@@ -163,13 +253,13 @@ function App() {
                 Let's discuss how custom AI solutions can help your business grow, save time, and improve customer satisfaction.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  to="/contact"
-                  className="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-50 transition-colors inline-flex items-center"
+                <button
+                  onClick={() => openPopup('Business Transformation - Homepage CTA')}
+                  className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
                 >
                   Start Your Journey
                   <ChevronRight className="ml-2 w-5 h-5" />
-                </Link>
+                </button>
                 <Link
                   to="/case-studies"
                   className="text-white border-2 border-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
