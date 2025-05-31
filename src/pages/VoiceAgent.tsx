@@ -6,6 +6,14 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 function VoiceAgent() {
+  const scrollToHowItWorks = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const section = document.getElementById('how-it-works');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
@@ -18,7 +26,7 @@ function VoiceAgent() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-left">
@@ -27,7 +35,7 @@ function VoiceAgent() {
                 78% of customers call the first business that picks up
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Stop Losing <span className="text-primary-300">$20,000+</span> in Missed Calls
+                Stop Losing <span className="text-white bg-primary-500 px-2 rounded">$20,000+</span> in Missed Calls
               </h1>
               <p className="text-xl text-primary-100 mb-8">
                 Your AI receptionist answers instantly, converts leads into bookings, and grows your revenue 24/7—while you focus on running your business.
@@ -42,6 +50,7 @@ function VoiceAgent() {
                 </Link>
                 <a
                   href="#how-it-works"
+                  onClick={scrollToHowItWorks}
                   className="inline-flex items-center px-8 py-4 rounded-xl text-xl font-medium text-white border-2 border-white hover:bg-white/10 transition-colors"
                 >
                   See How It Works
@@ -64,8 +73,8 @@ function VoiceAgent() {
             </div>
             <div className="relative hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800"
-                alt="Business professional on call"
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800"
+                alt="Professional business team"
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
@@ -132,7 +141,7 @@ function VoiceAgent() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-gradient-to-b from-primary-50 to-white">
+      <section id="how-it-works" className="py-20 bg-gradient-to-b from-primary-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
             Get Started in Under 24 Hours
