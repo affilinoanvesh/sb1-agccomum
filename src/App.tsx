@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
-import CTAButton from './components/CTAButton';
+import CTAPopup from './components/CTAPopup';
 import { caseStudies } from './data/caseStudies';
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
       />
       <ScrollToTop />
       <Header />
+      <CTAPopup />
 
       <main id="main-content">
         {/* Hero Section */}
@@ -30,11 +31,13 @@ function App() {
               I create personalized AI solutions that actually fit your business needs. 
               As a fellow small business owner, I understand the importance of getting it right.
             </p>
-            <CTAButton
+            <Link
+              to="/contact"
               className="bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
             >
               Start Your AI Journey
-            </CTAButton>
+              <ChevronRight className="ml-2 w-5 h-5" />
+            </Link>
           </div>
         </section>
 
@@ -160,11 +163,13 @@ function App() {
                 Let's discuss how custom AI solutions can help your business grow, save time, and improve customer satisfaction.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <CTAButton
+                <Link
+                  to="/contact"
                   className="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-50 transition-colors inline-flex items-center"
                 >
                   Start Your Journey
-                </CTAButton>
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </Link>
                 <Link
                   to="/case-studies"
                   className="text-white border-2 border-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors inline-flex items-center"
