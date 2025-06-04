@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ContactPopupProvider, useContactPopup } from './hooks/useContactPopup';
+import { useGTM } from './hooks/useGTM';
 import { ContactFormPopup } from './components/forms';
 import App from './App.tsx';
 import { 
@@ -23,6 +24,9 @@ import './index.css';
 // Root layout component that provides popup to all routes
 function RootLayout() {
   const { isOpen, triggerSource, closePopup } = useContactPopup();
+  
+  // Initialize GTM tracking for all routes
+  useGTM();
   
   return (
     <>

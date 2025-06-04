@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { X, Send, Bot, CheckCircle } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
 import { useNavigate } from 'react-router-dom';
+import { useGTM } from '../../hooks/useGTM';
+import { GTM_EVENTS } from '../../config/gtm';
 
 interface ContactFormPopupProps {
   isOpen: boolean;
@@ -12,6 +14,18 @@ interface ContactFormPopupProps {
 export default function ContactFormPopup({ isOpen, onClose, triggerSource }: ContactFormPopupProps) {
   const [state, handleSubmit] = useForm("xldgzdaa");
   const navigate = useNavigate();
+  const { trackFormSubmission, trackLeadGeneration } = useGTM();
+
+  // Track popup open
+  useEffect(() => {
+    if (isOpen && triggerSource) {
+      window.dataLayer?.push({
+        event: GTM_EVENTS.POPUP_OPEN,
+        popup_type: 'contact_form',
+        trigger_source: triggerSource
+      });
+    }
+  }, [isOpen, triggerSource]);
 
   // Close popup on Escape key
   useEffect(() => {
@@ -36,9 +50,14 @@ export default function ContactFormPopup({ isOpen, onClose, triggerSource }: Con
     };
   }, [isOpen, onClose]);
 
-  // Redirect to thank you page on success
+  // Redirect to thank you page on success and track conversion
   useEffect(() => {
     if (state.succeeded) {
+      // Track form submission and lead generation
+      // GTM will handle firing the actual conversion tags
+      trackFormSubmission('contact_form', triggerSource);
+      trackLeadGeneration(triggerSource || 'popup');
+      
       // Close popup first
       onClose();
       
@@ -51,6 +70,19 @@ export default function ContactFormPopup({ isOpen, onClose, triggerSource }: Con
       navigate(`/thank-you?${formData.toString()}`);
     }
   }, [state.succeeded, onClose, navigate, triggerSource]);
+
+  // Handle form submission with GTM tracking
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    // Track form submit attempt
+    window.dataLayer?.push({
+      event: GTM_EVENTS.FORM_SUBMIT_ATTEMPT,
+      form_name: 'contact_form',
+      form_source: triggerSource
+    });
+    
+    // Call the original handler
+    await handleSubmit(e);
+  };
 
   if (!isOpen) return null;
 
@@ -83,7 +115,7 @@ export default function ContactFormPopup({ isOpen, onClose, triggerSource }: Con
         {/* Form */}
         <div className="flex-1 overflow-y-auto">
           <div className="p-4 sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
               {/* Hidden field to track source */}
               <input type="hidden" name="source" value={triggerSource || 'popup'} />
               

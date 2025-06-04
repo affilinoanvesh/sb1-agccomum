@@ -4,55 +4,23 @@ import { MessageSquare, Brain, Clock, Wrench, ChevronRight, Code, Settings, User
 import { Header, Footer, SEO } from './components/layout';
 import { ScrollToTop } from './components/ui';
 import { useContactPopup } from './hooks/useContactPopup';
+import { useGTM } from './hooks/useGTM';
 import { caseStudies } from './data/caseStudies';
 
 function App() {
   const { openPopup } = useContactPopup();
+  const { trackButtonClick } = useGTM();
+
+  const handleCTAClick = (buttonName: string, location: string) => {
+    trackButtonClick(buttonName, location);
+    openPopup(`${buttonName} - ${location}`);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
         title="Custom AI Solutions for Small Businesses"
         description="Transform your small business with personalised AI solutions. Save time, reduce costs, and grow your customer base with AI tools tailored to your needs."
-        canonical="/"
-        keywords={[
-          'AI solutions for small business',
-          'custom AI development',
-          'business automation',
-          'artificial intelligence consulting',
-          'small business AI tools',
-          'AI customer service',
-          'AI voice agents',
-          'business process automation',
-          'AI for local business',
-          'machine learning solutions'
-        ]}
-        businessInfo={{
-          name: 'User Labs',
-          type: 'TechnologyCompany',
-          address: 'Auckland, New Zealand',
-          phone: '+64-27-123-4567',
-          email: 'hello@userlabs.co.nz',
-          priceRange: '$$'
-        }}
-        faq={[
-          {
-            question: 'How quickly can I get an AI solution for my business?',
-            answer: 'Most of our AI solutions can be implemented within 1-2 weeks, depending on complexity. We start with a consultation to understand your needs and provide a timeline.'
-          },
-          {
-            question: 'Do I need technical knowledge to use your AI solutions?',
-            answer: 'No, our AI solutions are designed to be user-friendly. We provide training and ongoing support to ensure you can use the system effectively.'
-          },
-          {
-            question: 'What types of businesses do you work with?',
-            answer: 'We work with various small businesses including medical practices, law firms, accounting offices, retail stores, cafes, beauty salons, automotive businesses, and more.'
-          },
-          {
-            question: 'How much do your AI solutions cost?',
-            answer: 'Our pricing varies based on your specific needs and complexity. We offer consultation to provide a customised quote that fits your budget and requirements.'
-          }
-        ]}
       />
       <ScrollToTop />
       <Header />
@@ -69,7 +37,7 @@ function App() {
               As a fellow small business owner, I understand the importance of getting it right.
             </p>
             <button
-              onClick={() => openPopup('AI Journey - Homepage Hero')}
+              onClick={() => handleCTAClick('Start Your AI Journey', 'Homepage Hero')}
               className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
             >
               Start Your AI Journey
@@ -254,7 +222,7 @@ function App() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
-                  onClick={() => openPopup('Business Transformation - Homepage CTA')}
+                  onClick={() => handleCTAClick('Start Your Journey', 'Homepage CTA')}
                   className="bg-accent-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors inline-flex items-center transform hover:scale-105"
                 >
                   Start Your Journey
