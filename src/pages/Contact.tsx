@@ -1,74 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, MessageSquare, MapPin, Phone, Mail, Clock, CheckCircle, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm, ValidationError } from '@formspree/react';
 import { Header, Footer, SEO } from '../components/layout';
 
 function Contact() {
   const [state, handleSubmit] = useForm("xldgzdaa");
+  const navigate = useNavigate();
 
-  if (state.succeeded) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
-        <SEO 
-          title="Message Sent - Thank You for Contacting User Labs"
-          description="Thank you for contacting User Labs. We'll get back to you within 24 hours to discuss your AI solution needs."
-          canonical="/contact"
-          noindex={true}
-        />
-        <Header />
-        <div className="flex items-center justify-center flex-1 min-h-[calc(100vh-200px)] px-4">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Send className="w-8 h-8 text-primary-600" />
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Message Sent!</h1>
-            <p className="text-gray-600 mb-8">
-              Thank you for reaching out. I'll get back to you within 24 hours.
-            </p>
-            <Link
-              to="/"
-              className="text-primary-600 hover:text-primary-700 font-medium"
-            >
-              Return to Home
-            </Link>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+  // Redirect to thank you page on success
+  useEffect(() => {
+    if (state.succeeded) {
+      // Get form data for tracking (if available)
+      const formData = new URLSearchParams();
+      formData.append('source', 'contact_page');
+      formData.append('timestamp', new Date().toISOString());
+      
+      // Navigate to thank you page with tracking data
+      navigate(`/thank-you?${formData.toString()}`);
+    }
+  }, [state.succeeded, navigate]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       <SEO 
-        title="Contact Us - Get Custom AI Solutions for Your Business"
-        description="Get in touch to discuss how custom AI solutions can help your business grow. Schedule a consultation and start your AI journey today. Free consultation available."
-        canonical="/contact"
-        keywords={[
-          'contact AI solutions',
-          'AI consultation',
-          'custom AI development contact',
-          'AI business solutions inquiry',
-          'AI implementation consultation',
-          'AI project consultation',
-          'business automation consultation',
-          'AI strategy consultation',
-          'AI development inquiry',
-          'AI solutions quote'
-        ]}
-        breadcrumbs={[
-          { name: 'Home', url: '/' },
-          { name: 'Contact', url: '/contact' }
-        ]}
-        businessInfo={{
-          name: 'User Labs',
-          type: 'TechnologyCompany',
-          address: 'Auckland, New Zealand',
-          phone: '+64-27-123-4567',
-          email: 'hello@userlabs.co.nz',
-          priceRange: '$$'
-        }}
+        title="Contact User Labs - Get Your Custom AI Solution"
+        description="Ready to transform your business with AI? Contact User Labs for a free consultation. Get a personalised AI solution proposal within 24 hours."
       />
       <Header />
 

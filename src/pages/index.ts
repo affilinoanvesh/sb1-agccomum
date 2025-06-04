@@ -14,4 +14,5 @@ export { default as FAQ } from './FAQ';
 export { default as GetStarted } from './GetStarted';
 export { default as Industries } from './Industries';
 export { default as Industry } from './Industry';
-export { default as NotFound } from './NotFound'; 
+export { default as NotFound } from './NotFound';
+export { default as ThankYou } from './ThankYou'; 

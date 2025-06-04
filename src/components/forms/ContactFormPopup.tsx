@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X, Send, Bot, CheckCircle } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
+import { useNavigate } from 'react-router-dom';
 
 interface ContactFormPopupProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface ContactFormPopupProps {
 
 export default function ContactFormPopup({ isOpen, onClose, triggerSource }: ContactFormPopupProps) {
   const [state, handleSubmit] = useForm("xldgzdaa");
+  const navigate = useNavigate();
 
   // Close popup on Escape key
   useEffect(() => {
@@ -34,48 +36,23 @@ export default function ContactFormPopup({ isOpen, onClose, triggerSource }: Con
     };
   }, [isOpen, onClose]);
 
-  // Close popup after successful submission
+  // Redirect to thank you page on success
   useEffect(() => {
     if (state.succeeded) {
-      setTimeout(() => {
-        onClose();
-      }, 3000); // Auto close after 3 seconds
+      // Close popup first
+      onClose();
+      
+      // Get form data for tracking
+      const formData = new URLSearchParams();
+      formData.append('source', triggerSource || 'popup');
+      formData.append('timestamp', new Date().toISOString());
+      
+      // Navigate to thank you page with tracking data
+      navigate(`/thank-you?${formData.toString()}`);
     }
-  }, [state.succeeded, onClose]);
+  }, [state.succeeded, onClose, navigate, triggerSource]);
 
   if (!isOpen) return null;
-
-  // Success state
-  if (state.succeeded) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
-        <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 animate-in zoom-in-95 duration-300">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-500" />
-          </button>
-
-          <div className="text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-8 h-8 text-green-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Message Sent!</h3>
-            <p className="text-gray-600 mb-6">
-              Thank you for reaching out. I'll get back to you within 24 hours with a personalised AI solution proposal.
-            </p>
-            <button
-              onClick={onClose}
-              className="bg-accent-500 text-white px-6 py-3 rounded-lg hover:bg-accent-600 transition-colors font-medium"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   // Form state
   return (

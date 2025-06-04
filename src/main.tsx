@@ -11,7 +11,8 @@ import {
   FAQ, 
   Industries, 
   Industry, 
-  NotFound 
+  NotFound,
+  ThankYou
 } from './pages';
 import { Terms, Privacy } from './pages/legal';
 import { CaseStudies, CaseStudy } from './pages/case-studies';
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: "faq",
         element: <FAQ />,
+      },
+      {
+        path: "thank-you",
+        element: <ThankYou />,
       },
       {
         path: "*",
