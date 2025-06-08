@@ -151,19 +151,38 @@ export default function ContactFormPopup({ isOpen, onClose, triggerSource }: Con
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="popup-company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="popup-company"
-                  name="company"
-                  className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-base"
-                  placeholder="Your company name"
-                />
-                <ValidationError prefix="Company" field="company" errors={state.errors} className="mt-1 text-sm text-red-600" />
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                <div>
+                  <label htmlFor="popup-phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Mobile Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="popup-phone"
+                    name="phone"
+                    required
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-base"
+                    placeholder="021 123 4567"
+                  />
+                  <ValidationError prefix="Phone" field="phone" errors={state.errors} className="mt-1 text-sm text-red-600" />
+                </div>
+
+                <div>
+                  <label htmlFor="popup-company" className="block text-sm font-medium text-gray-700 mb-2">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    id="popup-company"
+                    name="company"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-base"
+                    placeholder="Your company name"
+                  />
+                  <ValidationError prefix="Company" field="company" errors={state.errors} className="mt-1 text-sm text-red-600" />
+                </div>
               </div>
+
+
 
               <div>
                 <label htmlFor="popup-message" className="block text-sm font-medium text-gray-700 mb-2">
